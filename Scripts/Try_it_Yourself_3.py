@@ -23,3 +23,7 @@ print("Sorry",crash,"Unfortunately we can't invite to the dinner because, they d
 print(Guest)
 # del Guest[2]
 
+#3.9 Dinenr Guest. use len()
+print(len(Guest))
+
+
