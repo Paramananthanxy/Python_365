@@ -1,0 +1,113 @@
+Downloading data..
+-----------------------------------------------------
+Two common data formats stored is CSV and JSON..
+
+The CSV file format:
+    1.Its look like comma-seperate values.
+    2.
+
+Weather Formate:
+2014-1-5,61,44,26,18,7,-1,56,30,9,30.34,30.27,30.15,,,,10,4,,0.00,0,,195
+
+CSV formatted weather data recorded .. which available in the book's resources 
+    https://www.nostrach.com/pythoncrashcourse/.
+
+The weather data in this project was originally downloaded from http://www
+.wunderground.com/history/.
+
+Parsing the CSV File Headers
+------------------------------
+
+import CSV -            -------------> importing the csv module
+
+with open(filename) as f :
+reader = csv.reader(f)    -----------> using csv.reader to read the csv.file formate 
+header_row = next(reader) -----------> iteratoring the headers in th file 
+print(header_row)
+
+Priniting the Headers and their positions.
+-----------------------------------------
+
+
+using for loop  
+for index,column_headers in enumerate(header_row): -----------> using enumerate. list to get the index of the value 
+print(index,column)
+
+Extracting and Reading Data:
+---------------------------
+
+Plotting Dates:
+----------------
+including dates using datetime module
+from datetime import datetime
+dates,high = [],[]
+
+current_date = datetime.strptime(row[0],"%Y-%m-%d")
+dates.append(current_date)
+
+plotting a second Data series:
+--------------------------------
+
+
+Mapping Global Data set:JSON format
+---------------------------------------
+We are going to use the pygal's because its beginner friendly mapping tool for 
+country-based data,
+
+
+Extracting Relevant Data:
+-----------------------------------
+In json everything look like a python dictonary formate.
+
+import json
+json.load()
+
+Converting String into Numerical Values:
+----------------------------------------
+In json every key and value is in string.so we need to convert into numerical values
+
+population = int(values)
+
+sometimes the value inside the json i like float value like 9798798.9878798
+like this so we can directly convert into the interger.
+so we have to convert into float then integer 
+
+population = int(float(value))
+
+Obraining Two-digit country  codes:
+-------------------------------------
+Pygal expects data in a particular format. countries need to be provided as
+country codes and populations as values.
+pygal country codes are stored in a module called i18n, short for internationalizaiton
+this dictionary countries contains the two-letter country codes as key and the country 
+names as values.
+
+from pygal.i18n import countries ---> old version 
+from pygal_maps_world import COUNTRIES
+
+for country_code in sorted(COUNTRIES.keys()):
+    print(country_code, COUNTRIES[country_code])
+
+Building a WorldMap:
+------------------------
+
+from pygal_maps_world.maps import World
+wm = World()
+
+wm.render_to_file('americas.svg')  for rendering file "americas.svg" file name 
+for building world map this is the latest version 
+
+plotting a complete population map
+----------------------------------
+    we have to create a dictionary and then we can insert in the wm
+    wm.add('world population',populations) --> populations is a dictonary
+
+
+Grouping the countries:
+------------------------------
+    Grouping the country with population rate 
+
+    we can do it if else concepts bro 
+
+Styling the world map in pygal
+------------------------------

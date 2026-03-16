@@ -1,0 +1,7 @@
+nvd:
+
+call the nvd cve api
+fetch vulnerability data
+store it in sqlite database 
+provide rest api using flask
+

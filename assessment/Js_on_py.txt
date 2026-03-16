@@ -1,0 +1,39 @@
+## Accessing JSON file
+    first we have to import JSON
+
+
+
+
+    data = json.loads(people_string)   ### for load the json file and storing it in data 
+
+    new_string = json.dumps(data , indent=2, sort_key=True)  ##json.dump for storing in new_string variable //indent=2 for giving space in the code//
+                                                                sort_key=True for sorting the values in the new_string 
+
+load --> method used for load json in python.
+
+we have to open the json file so we have to use with
+    with open('states.json') as f:
+     data = json.load(f)   # now loading a file in data using json.load 
+
+    for state in data['states]:     ### for getting value from the data calling the key states..
+        del state['area']           ### for deleting the area key from the file 
+
+    with open('new_state.json','w') as f:  ###for saving the output in a file 
+        json.dump(data,f,indent = 2)                  ###dumping the data into f file 
+
+
+    import json
+    from urllib.request import urlopen
+
+    with urlopen("https://example.com") as response:
+        source = response.read()
+        print(source)
+
+        data = json.loads(source)
+        print(json.dump(data,indent=2))
+
+
+        for item in data['list']['resources']:
+            name = item['resource]['field']['name']  getting the values from the file 
+            price = item['resource]['field']['price']
+        

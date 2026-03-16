@@ -1,0 +1,7 @@
+Pygal 
+----------------
+First install the pygal 
+    pip install pygal
+
+
+Lets create a dice program

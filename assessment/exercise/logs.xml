@@ -1,0 +1,17 @@
+<logs>
+    <log>
+        <user>alice</user>
+        <action>login</action>
+        <status>success</status>
+    </log>
+    <log>
+        <user>bob</user>
+        <action>download</action>
+        <status>failed</status>
+    </log>
+    <log>
+        <user>charlie</user>
+        <action>upload</action>
+        <status>success</status>
+    </log>
+</logs>

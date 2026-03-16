@@ -1,0 +1,95 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SecurityMonitoringSystem>
+
+    <Organization>
+        <Name>Max Security</Name>
+        <Location>Global Monitoring Center</Location>
+        <GeneratedDate>2026-03-06</GeneratedDate>
+    </Organization>
+
+    <Events>
+
+        <Event>
+            <EventID>1001</EventID>
+            <Timestamp>2026-03-06T10:20:30Z</Timestamp>
+            <Severity>High</Severity>
+            <SourceIP>192.168.1.12</SourceIP>
+            <DestinationIP>10.10.0.5</DestinationIP>
+            <EventType>Unauthorized Access Attempt</EventType>
+            <Description>Multiple failed login attempts detected.</Description>
+            <Status>Investigating</Status>
+        </Event>
+
+        <Event>
+            <EventID>1002</EventID>
+            <Timestamp>2026-03-06T10:25:12Z</Timestamp>
+            <Severity>Medium</Severity>
+            <SourceIP>172.16.4.21</SourceIP>
+            <DestinationIP>10.10.0.8</DestinationIP>
+            <EventType>Suspicious File Download</EventType>
+            <Description>Executable downloaded from untrusted domain.</Description>
+            <Status>Monitoring</Status>
+        </Event>
+
+        <Event>
+            <EventID>1003</EventID>
+            <Timestamp>2026-03-06T10:30:45Z</Timestamp>
+            <Severity>Critical</Severity>
+            <SourceIP>45.23.77.91</SourceIP>
+            <DestinationIP>10.10.0.15</DestinationIP>
+            <EventType>Malware Detected</EventType>
+            <Description>Known ransomware signature detected in system.</Description>
+            <Status>Blocked</Status>
+        </Event>
+
+        <Event>
+            <EventID>1004</EventID>
+            <Timestamp>2026-03-06T10:35:10Z</Timestamp>
+            <Severity>Low</Severity>
+            <SourceIP>192.168.2.50</SourceIP>
+            <DestinationIP>10.10.0.20</DestinationIP>
+            <EventType>Port Scan</EventType>
+            <Description>Port scan detected from internal network.</Description>
+            <Status>Logged</Status>
+        </Event>
+
+        <Event>
+            <EventID>1005</EventID>
+            <Timestamp>2026-03-06T10:40:00Z</Timestamp>
+            <Severity>High</Severity>
+            <SourceIP>203.0.113.10</SourceIP>
+            <DestinationIP>10.10.0.25</DestinationIP>
+            <EventType>Data Exfiltration Attempt</EventType>
+            <Description>Large outbound data transfer detected.</Description>
+            <Status>Blocked</Status>
+        </Event>
+
+    </Events>
+
+    <Users>
+
+        <User>
+            <UserID>U001</UserID>
+            <Name>John Carter</Name>
+            <Role>Security Analyst</Role>
+            <LastLogin>2026-03-06T09:15:00Z</LastLogin>
+        </User>
+
+        <User>
+            <UserID>U002</UserID>
+            <Name>Priya Sharma</Name>
+            <Role>Threat Intelligence</Role>
+            <LastLogin>2026-03-06T08:50:00Z</LastLogin>
+        </User>
+
+        <User>
+            <UserID>U003</UserID>
+            <Name>David Lee</Name>
+            <Role>Incident Response</Role>
+            <LastLogin>2026-03-05T23:10:00Z</LastLogin>
+        </User>
+
+    </Users>
+
+</SecurityMonitoringSystem>

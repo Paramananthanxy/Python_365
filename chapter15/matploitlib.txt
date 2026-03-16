@@ -1,0 +1,95 @@
+Matploitlib :
+---------------
+
+install the Matploitlib
+py -m pip install Matploitlib
+
+
+The matplotlib gallery
+
+sample gallery http://matplotlib.org/
+
+
+Plotting a simple line graph.
+--------------------------------
+import matplotlib.pyplot as plt
+
+square = [1,4,9,16,25]
+plt.plot(square)
+plt.show()
+
+plt.plot(square)
+-----------------------
+It creates a figure (if one doesn't exist).
+It creates an axes inside that figure.
+It stores your data inside that axes.
+It prepares a line object.
+
+Internally, it adds your data to a “current plot buffer.”
+    Figure
+       └── Axes
+             └── Line (your square data)
+
+plt.show()
+----------------------
+Render our current figure on our screen 
+
+
+
+Changing the Label Type and Graph Thickness.
+----------------------------------------------
+
+plt.plot(Squares,linewidth)= 5 ------> for adjusting line size 
+plt.title("Square Numbers",fontsize = 24)-----> Giving title to the graph
+plt.xlabel("value",fontsize=14) -------------->name and size for x axis
+plt.ylabel("Square of Value",fontsize=14) ---->name and size for y axis 
+
+
+plt.tick_params(axis='both',labelsize=14)---->styles the tick marks  the argument show here affected both x and y axis
+
+
+Correcting the Plot:
+
+    1.the plot give default value x for 0 
+    2.Overrriding the x axis value by giving a input 
+
+input_values = [1, 2, 3, 4, 5]
+squares = [1, 4, 9, 16, 25]
+plt.plot(input_values, squares, linewidth=5)
+
+Plotting and styling Individual points with scater()
+----------------------------------------------------
+    for styling the points by scatter()
+
+    plt.scatter(2,4 s=200)  
+    plt.scatter(x_axis,y_axis, s=200)-------->x and y axis both are variables and s=200 is thickness of the point  
+
+Calculating Data Automatically:
+-------------------------------
+
+x_values = lsit(range(1,1001))
+y_values = [x**2 for x in x_values]
+
+for larger set we use axis() to specify the range of each axis 
+
+
+using a Colormap:
+-------------------
+
+emphasize a pattern in the data make low values a light color and high values a dark color 
+now we assigning for x axis 
+
+
+Saving Your Plots Automatically:
+
+save the plot 
+plt.savefig('sqare_plot.png',bbox_inches='tight')
+
+
+Altering the size to fill the screen
+--------------------------------------
+
+
+plt.figure(figsize=(10,6))
+plt.figure(dpi=128, figsize=(10, 6)
+

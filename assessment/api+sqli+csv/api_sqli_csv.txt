@@ -1,0 +1,42 @@
+Big Picture
+==========================
+    csv file
+        |
+    Python read csv
+        |
+    store data in SQLite database
+        |
+    Flask API lets users query the data
+
+
+SQLite (super simple database)
+
+create database and table 
+
+import sqlite3 ---> for importing sqllite3
+
+conn = sqlite3.connect("weather.db")
+cursor.execute(""" CREATE TABLE weather(data TEXT, 
+                    temperature INTEGER,
+                    humidity INTEGER,pressure INTEGER) """)
+conn.commit()
+conn.close()
+
+the assessment really check 
+--------------------------------
+read csv
+store data 
+create a simple API
+query the data 
+return results 
+
+CSV file
+   ↓
+Data Processing
+   ↓
+Database Storage (SQLite)
+   ↓
+API Layer (Flask)
+   ↓
+User Queries
+

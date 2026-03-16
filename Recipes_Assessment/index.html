@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Recipes</title>
+
+<style>
+
+table{
+width:100%;
+border-collapse: collapse;
+}
+
+th,td{
+border:1px solid black;
+padding:10px;
+text-align:left;
+}
+
+tr:hover{
+background:#eee;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Recipes List</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Title</th>
+<th>Cuisine</th>
+<th>Rating</th>
+<th>Total Time</th>
+<th>Serves</th>
+</tr>
+</thead>
+
+<tbody id="tableBody"></tbody>
+
+</table>
+
+<script>
+
+fetch("http://127.0.0.1:5000/api/recipes")
+.then(res => res.json())
+.then(data => {
+
+let table = document.getElementById("tableBody")
+
+data.data.forEach(recipe => {
+
+let stars = "⭐".repeat(Math.round(recipe.rating))
+
+let row = `
+<tr onclick="showRecipe('${recipe.description}')">
+<td>${recipe.title}</td>
+<td>${recipe.cuisine}</td>
+<td>${stars}</td>
+<td>${recipe.total_time}</td>
+<td>${recipe.serves}</td>
+</tr>
+`
+
+table.innerHTML += row
+
+})
+
+})
+
+function showRecipe(desc){
+
+alert(desc)
+
+}
+
+</script>
+
+</body>
+
+</html>

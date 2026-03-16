@@ -1,0 +1,18 @@
+<events>
+    <event>
+        <id>101</id>
+        <severity>High</severity>
+    </event>
+    <event>
+        <id>102</id>
+        <severity>Low</severity>
+    </event>
+    <event>
+        <id>103</id>
+        <severity>High</severity>
+    </event>
+    <event>
+        <id>104</id>
+        <severity>Medium</severity>
+    </event>
+</events>

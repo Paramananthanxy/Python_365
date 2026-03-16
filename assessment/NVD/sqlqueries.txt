@@ -1,0 +1,30 @@
+basic query"
+SELECT * FROM table;
+
+Selecting specific columns:
+SELECT id,descriptions, published FROM cve;
+
+Filtering rows (VERY IMPORTANT)
+SELECT id, descriptions FROM cve
+WHERE id = 'CVE-1999-1059';
+
+Filtering by date
+
+Example: “Give me recent CVEs.”
+
+SELECT id, descriptions
+FROM cve
+WHERE published >= '2025-01-01';
+
+Getting limited rows
+
+Sometimes we don’t want everything.
+
+SELECT * FROM cve
+LIMIT 10;
+
+Meaning:
+
+Give me only first 10 rows
+
+Useful for testing.

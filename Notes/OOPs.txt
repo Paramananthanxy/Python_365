@@ -1,0 +1,172 @@
+# Object-oriented Programming 
+--------------------------------------------------------
+
+class = design
+object = real thing made from the design
+
+Function that's part of a class is a method.Everything we learned about function applied to method as well.
+
+
+
+car ,properties,behaviour
+properties:
+    4 tyres
+    airbages
+    staring
+    200kmph
+Behaviou:
+    Accelearte 
+    Brake 
+    Reverse 
+    Parking 
+
+
+simple example  
+colleg form , for you and friend you can copy but the template is same for everyform 
+
+class is a blueprint 
+
+now we are going to create a template blueprint for car mean We are going to create a class 
+
+in this we have to car so we have to copy the car class. the copy is called as instanciation.. If we need other copy we create other instanciation
+
+
+class = blueprint
+object = instance, copy ... we can copy infinite ...
+
+Syntax:
+
+class Car:  ---> creating a class named car
+    no_of_wheels = 0   -------->variables with default values 
+    mileage = 0.0
+    no_of_airbags = 0 
+
+        def moveForward():
+            print("Car is moving Forward..!)
+        
+        def moveBackward():
+            print("Car is moving Backward..!)
+
+Inside the class all data called as data members 
+
+
+In the object we can fill the real data.. 
+
+car1 = Car()   #instance of a class- object: Instantiation.
+print(car1.no_of_wheels)
+
+
+when we calling the function we have add parameter in the function(self) ---> the self method is very important 
+
+
+
+###inheritance 
+#Parent class
+creating a child class inherit details from the parent class...
+Car():
+ """A simple attempt to represent a car."""
+ def __init__(self, make, model, year):
+ self.make = make
+ self.model = model
+ self.year = year
+ self.odometer_reading = 0
+
+ def get_descriptive_name(self):
+ long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+ return long_name.title()
+
+ def read_odometer(self):
+ print("This car has " + str(self.odometer_reading) + " miles on it.")
+
+ def update_odometer(self, mileage):
+ if mileage >= self.odometer_reading:
+ self.odometer_reading = mileage
+ else:
+ print("You can't roll back an odometer!")
+
+ def increment_odometer(self, miles)
+
+
+ #Child class 
+ class ElectricCar(Car): ---------------> inherits from the parent class (car)
+ """Represent aspects of a car, specific to electric vehicles."""
+
+Classes   173
+ def __init__(self, make, model, year):-----------> ubformation of a car instance 
+ """Initialize attributes of the parent class."""
+ super().__init__(make, model, year)  --------------------> super()  special funciton.. help to connect between parent and child class.
+                                      --------------------> Parent class super class and child class subclass. 
+
+ my_tesla = ElectricCar('tesla', 'model s', 2016)
+print(my_tesla.get_descriptive_name()) ------------------> calling the methods from the parent class .. so impressive 
+
+-------------------------------
+#Inheritance in Python 2.7
+class Car(object):
+ def __init__(self, make, model, year):
+ --snip--
+class ElectricCar(Car):
+ def __init__(self, make, model, year):
+ super(ElectricCar, self).__init__(make, model, year)
+ --snip--
+
+
+    1.parent class using object syntax as well.
+    2.super() function needs two arguments .. refere a child class and self object.
+
+#Overrriding Methods from the parent class
+    1.We can override any method from the parent class that doesn't fit what you're trying to model with the child class.
+    2.To do this, you define a method in the child class with the same name as the method you want to override in the parent class. 
+
+Say the class Car had a method called fill_gas_tank(). This method is
+meaningless for an all-electric vehicle, so you might want to override this
+method. Here’s one way to do that:
+def ElectricCar(Car):
+ --snip--
+ def fill_gas_tank():
+ """Electric cars don't have gas tanks."""
+ print("This car doesn't need a gas tank!")
+
+
+# Importing class 
+
+using 
+from car import Car -----------> here car is a file.py // Car is a class 
+
+Storing Multiple Classes in a Module
+
+from car import ElectricCar  -----------> we imported the child class.
+
+Importing Multiple Classes from a Module:
+from car import Car, ElectricCar ------->  We can import multiple classes.
+
+my_beetle = Car('volkswagen', 'beetle', 2016)
+print(my_beetle.get_descriptive_name())
+w my_tesla = ElectricCar('tesla', 'roadster', 2016)
+print(my_tesla.get_descriptive_name())
+
+Importing Entire Module:
+
+import car ---------> This help to import every module from the file 
+
+my_beetle = car.Car('volkswagen', 'beetle', 2016)
+print(my_beetle.get_descriptive_name())
+my_tesla = car.ElectricCar('tesla', 'roadster', 2016)
+print(my_tesla.get_descriptive_name())
+
+Importing All Classes from a Module
+
+from module_name import *
+
+Importing a Module in a Module:
+
+spread out your classes over several modules to keep any one filr from growing 
+too large and avoid storing unrelated classes in the same module.
+
+
+from car import Car
+from electric_car import ElectricCar
+my_beetle = Car('volkswagen', 'beetle', 2016)
+print(my_beetle.get_descriptive_name())
+my_tesla = ElectricCar('tesla', 'roadster', 2016)
+print(my_tesla.get_descriptive_name())

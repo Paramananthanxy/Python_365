@@ -1,0 +1,109 @@
+project/
+│
+├── app.py                # Python backend (Flask API)
+│
+├── templates/
+│      list.html          # Page 1 (table of CVEs)
+│      detail.html        # Page 2 (single CVE info)
+│
+├── static/
+│      style.css
+│      script.js
+│
+└── database.db
+
+
+
+Creating a javascript file 
+------------------------
+
+1. creating a funciton 
+    using async funciton used for api and server response.
+
+    aysnc function loadCVEs()
+
+by using this async this funciton will wait for server response.
+2. Await.
+    # let response --> let is helpfull for reassigning.
+    let response = await fetch("/api/cves")
+  Wait until the api finshes and returns data... 
+  more like res = request.get(url) like in python....
+
+3.FetchAPI 
+    fetch()--> call the backend api 
+    this will call our flask route 
+    @app.route("/api/cves")
+4.JSON Parsing:
+------------------
+response.json() 
+let data = await response.json()
+convert the server response into javascript object.
+
+now we can access  data.total , data.cves like that 
+
+5.DOM Manipulation.
+----------------------
+document.getElementById()
+
+document.getElementById("total")
+Find an HTML element using its id.
+    html:
+    <span id = "total"></span>
+Then change text:
+.innerText
+
+document.getElementById("total").innerText = data.total
+
+6.Loop(forEach)
+
+forEach
+
+data.cves.forEach(cve =>{})
+loop through list
+
+for cve in data["cves]:
+
+7.Template Strings:
+----------------------
+`` template string 
+let row = <tr onclick ="openDetail('${cve.id}')">
+<td>${cve.id}</td>
+<td>${cve.description}</td>
+<td>${cve.published}</td>
+html result
+<tr onclick="openDetail('CVE-2023-0001')">
+<td>CVE-2023-0001</td>
+<td>Buffer overflow</td>
+<td>2023-01-10</td>
+</tr>
+
+8.Changing HTML Content.
+-----------------------
+innerHTML
+
+table.innerHTML += row
+
+add a new row to the table 
+
+9.Page Navigaiton:
+
+window.location.href
+
+window.location.href="/cves/"+id 
+
+open a new page
+
+/cves/CVE-2023-0001 
+
+10.Auto Run Function
+
+loadCVEs()
+
+
+
+page loads
+javascript calls API
+Backend returns JSON 
+Javascript loops through data
+table rows are created
+click row -> open details page.

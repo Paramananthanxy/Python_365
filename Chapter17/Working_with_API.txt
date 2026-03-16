@@ -1,0 +1,89 @@
+Working with API :
+------------------------------
+
+
+Requesting Data using an API call:
+--------------------------
+    https://api.github.com/search/repositories?q=language:python&sort=stars
+
+    the first part https://api.github.com/ direct request to github website that respond 
+    to api call.
+
+Processing an API Response:
+==========================
+
+import requests
+
+url = https://api.url.com
+r = requests.get(url)
+print("status code" r.status_code)
+
+    #store the json in dictinoary
+--
+response_dict = r.json()
+for key in response_dict.keys():
+    print(key)
+
+Working with the Response Dictionary:
+-------------------------------------
+    working with dictionary by 
+    print("Total repositoreis: , response_dict['total_count'])
+    repo_dicts = response_dict['items']
+Summarize the Top Repositories:
+------------------------------
+     we make a visualization for this data we want to include more thatn one repository
+     using for loop for this.
+     for repo_dict in repo_dicts:
+        print('\nName:', repo_dict['name'])
+        print('Owner:', repo_dict['owner']['login'])
+        print('Stars:', repo_dict['stargazers_count'])
+        print('Repository:', repo_dict['html_url'])
+        print('Description:', repo_dict['description'])
+
+
+Monitoring API Rate Limits:
+---------------------------
+    Every api have rate limit for request sending to the api.. 
+    so we can check that by 
+        https://api.github.com/rate_limit  using the parameter rate_limit.
+    We can see 10 request per minutes.
+
+    ** if we have api key our rate limit be increase 
+
+visualizing Repositories using pygal:
+------------------------------------
+using pygal to creating chart for better visual report 
+import pygal
+from pygal.style import LightColorizedStyle as LCS, LightenStyle as LS
+
+    ---snip--
+
+my_style = LS('#333366', base_style=LCS)
+x chart = pygal.Bar(style=my_style, x_label_rotation=45, show_legend=False)
+chart.title = 'Most-Starred Python Projects on GitHub'
+chart.x_labels = names
+y chart.add('', stars)
+chart.render_to_file('python_repos.svg')
+
+printing key in item inside the json file:
+------------------------------------------
+for key in repo_dicts.keys():
+    print(key)
+
+See the structure clearly(very usefull):
+-------------------------------------
+import json 
+print(json.dumps(repo_dicts,indent=4)) 
+for much understandable formate 
+
+
+simple pygal :
+import pygal
+chart = pygal.Bar()
+chart.x_labels = name
+chart.add('star',stargazer)
+chart.render_to_file('chart.svg')
+
+
+Plotting the Data:
+--------------------

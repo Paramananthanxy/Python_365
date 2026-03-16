@@ -1,0 +1,14 @@
+% anything after this 
+
+19961101% mean anything after this i dont know so print it 
+
+Query:
+SELECT condition,temperature,humidity,pressure FROM weather WHERE datetime Like ? (date + '%',)
+
+for specific moth:
+SELECT condition,temperature,humidity,pressure FROM weather WHERE substr(datetime,5,2) =?,(month,)
+
+for year and temperature statics:
+
+SELECT substr(datetime,5,2) as month, MAX(temperature),MIN(temperature),avg(temperature) 
+FROM weather WHERE substr(datetime,1,4) = ? GROUP BY month 

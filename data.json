@@ -1,0 +1,1 @@
+{"bookstore": {"book": [{"@category": "cooking", "title": {"@lang": "en", "#text": "Everyday Italian"}, "author": "Giada De Laurentiis", "year": "2005", "price": "30.00"}, {"@category": "children", "title": {"@lang": "en", "#text": "Harry Potter"}, "author": "J.K. Rowling", "year": "1997", "price": "29.99"}]}}

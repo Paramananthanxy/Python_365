@@ -1,0 +1,59 @@
+sqllite:
+--------
+
+import sqlite3  for importing 
+
+conn = sqllite3.connect("weather.db") -->it will connect if database doesn't exist
+it will create a new database 
+
+cursor = conn.cursor() --> the cursor is used for run the sql queries.
+
+cursor.execute("""CREATE TABLE IF NOT EXISTS weather(
+    date TEXT,temperature INTERGER,humidity INTEGER,
+    windspeed REAL
+)""")
+
+this cursor.excute create a table if its is doesn't exist... 
+
+then we inserting the data 
+
+cursor.execute("INSERT INTO weather VALUES(?,?,?,?)",("2024-01-01",15,36,17.0))
+
+For inserting the value in the db
+
+save changes:
+-----------
+conn.commit()
+commit is used for save the data 
+
+cursor.execute("SELECT * FROM weather") --->select data include that fetchall to used for
+rows = cursor.fetchall()
+print(rows)
+conn.close()
+
+
+Cursor:
+-------------
+
+cursor.execute() --> for single sql query.. select,insert,create
+cursor.executemany() --> run the same query multiple times 
+data = [
+("2024-01-01",15,36,17.0),
+("2024-01-02",31,28,15.1)
+]
+
+cursor.executemany(
+"INSERT INTO weather VALUES (?, ?, ?, ?)",
+data
+)
+
+cursor.fetchone()  ---> for fetching one rows
+cursor.fetchall()  ---> for fetching many rows
+cursor.fetchmany() ---> for fetching few rows at a time 
+    rows = cursor.fetchmany(2)
+cursor.close()     ---> for closing the connection 
+cursor.rowcount    ---> telling how many rows where affected 
+
+    cursor.execute("DELETE FROM weather WHERE date='2024-01-01'")
+    print(cursor.rowcount)
+
